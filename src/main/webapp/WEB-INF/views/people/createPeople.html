@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Создание человека</title>
+</head>
+<body>
+    <form th:action="@{/people/add}" th:method="POST" th:object="${person}">
+        <label for="fullName">Введите ФИО:</label>
+        <input id="fullName" th:field="*{fullName}">
+        <div th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}" style="color: red;">fullName error</div>
+        <br>
+        <label for="yearOfBirth">Введите год рождения:</label>
+        <input id="yearOfBirth" th:field="*{yearOfBirth}">
+        <br>
+        <input type="submit" value="Добавить">
+    </form>
+</body>
+</html>
